@@ -1,0 +1,63 @@
+@import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
+
+a.mapboxgl-ctrl-logo::after, .mapboxgl-ctrl-attrib a::after {
+  display: none !important;
+}
+
+.map-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.EmptyState,
+.ErrorState {
+  height: 100%;
+  text-align: center;
+
+  &-cardBody {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.ErrorState-headingText {
+  color: darkgrey;
+}
+
+$colors: (
+  red:    #de4639,
+  yellow: #eab71e,
+  green:  #2bae6c
+);
+
+@mixin dot-init {
+  @each $name, $hex in $colors {
+    .#{$name}-dot {
+      width: .5em;
+    	height: .5em;
+      border-radius: 100%;
+      background: $hex;
+      box-shadow: 0 0 .5em .5em rgba($hex, .5);
+      animation: pulse-#{$name} 5s infinite ease-in-out;
+    }
+  }
+}
+
+@mixin dot-anim {
+  @each $name, $hex in $colors {
+    @keyframes pulse-#{$name} {
+    	0% { box-shadow: 0 0 0 0 rgba($hex, 0); }
+    	33% { box-shadow: 0 0 .25em 0 rgba($hex, .99); }
+    	66% { box-shadow: 0 0 .5em .5em rgba($hex, 0); }
+    }
+  }
+}
+
+@include dot-init;
+@include dot-anim;

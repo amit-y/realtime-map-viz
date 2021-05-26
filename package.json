@@ -1,0 +1,24 @@
+{
+    "private": true,
+    "name": "realtime-map-viz",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "nr1 nerdpack:serve",
+        "test": "exit 0"
+    },
+    "nr1": {
+        "uuid": "1f31608d-b9d0-451e-810c-5b2594d810c0"
+    },
+    "dependencies": {
+        "mapbox-gl": "^2.2.0",
+        "prop-types": "^15.6.2",
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3",
+        "recharts": "^2.0.9"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "not ie < 11",
+        "not dead"
+    ]
+}
